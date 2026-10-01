@@ -1,0 +1,11 @@
+Review the current Stage 0 skeleton as if this were a PR you did not author.
+
+Read docs/plan.md first (this stage's section) to understand the intended behavior, architecture, automated test strategy, and manual smoke test.
+
+Verify the implementation against that contract: path helpers, data dirs, pytest layout.
+
+Add or improve unit, regression, and integration tests where they provide meaningful coverage. Run the full pytest suite. If something fails, fix the underlying implementation problem rather than weakening a legitimate test.
+
+Inspect whether the documented Manual Smoke Test is still accurate and runnable (you don't need to perform the live classroom demo). Keep this stage's section in docs/plan.md synchronized with reality if commands or outputs changed — never wipe earlier stages.
+
+Finish with a short summary of what you checked, anything you changed, and whether the full suite passes.

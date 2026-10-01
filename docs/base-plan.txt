@@ -1,0 +1,41 @@
+We're about to build a small ML pipeline together. 
+Before anyone touches application code, help me sketch the system so everyone in the room has the same mental model.
+
+The product story is CO2-emission: the input is the the agrofood_co2_emission.csv, 
+and we want to determine which variables have a significant impact on total_emission. 
+
+The statistical models I want to include are:
+- linear regression
+- degree 2 polynomial 
+- degree 3 polynomial 
+- multiple linear regression
+
+For each statistical model I want the following statistics values to be returned:
+- root mean squared error (RMSE)
+- R-squared value (R2)
+
+
+Architecturally I want something modular:
+- separate stages that feel like separate processes
+- they hand off through folders under data/, not by importing each other
+- the separation between statistical models is clear
+- no containers, Kafka, Spark, etc. — plain Python and files are enough
+- the returned statistics should be stored in a single dataframe.
+
+Orchestration non-negotiable for this project:
+- everything we run in class or in smoke tests must be wired through a Makefile
+- prefer targets like `make install`, `make test`, `make simulator`, `make preprocess`, `make train`, 
+    `make infer`, `make dashboard`, `make run` / `make stop`, `make clean-data`
+- stages can still be implemented as `python -m pipeline.<stage>`, but the Makefile is the public interface the room uses
+- a single living plan lives at `docs/plan.md` — Architect owns it; stages are appended, never wholesale-overwritten
+- `docs/plan.md` Manual Smoke Tests should use `make …` commands, not ad-hoc python invocations, 
+    unless something truly has no make target yet (in which case add the target)
+
+Sketch a Mermaid flowchart (left-to-right is fine) that captures that story, 
+including the train write path and the infer read path. 
+Then give me a few short bullets on the teaching beats we should keep repeating as we build — 
+including that the Makefile is how we orchestrate the demo.
+
+Create `docs/plan.md` (the one plan file for the whole demo) with that diagram and the short bullets 
+under a clear header (e.g. `# CO2-emission — living plan` plus a `## Base — Pipeline diagram` section). 
+Don't implement the pipeline yet — `docs/plan.md` only.

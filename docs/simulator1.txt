@@ -1,0 +1,9 @@
+We're implementing Stage 1 of the CO2-emission pipeline (simulator / intake).
+
+Inspect the repository and read docs/plan.md first (focus on this stage's section; earlier stages are context). Treat it as the architecture and behavior handoff from the planning agent — including the Manual Smoke Test.
+
+Implement the planned statistical models. 
+
+Keep this scoped to intake. Add/update relevant tests and run them as you work.
+
+When implementation is complete, do not overwrite docs/plan.md or earlier stage sections. Make sure this stage's Manual Smoke Test still matches the actual commands and behavior. If details changed, update only that stage's Manual Smoke Test section so it is runnable.

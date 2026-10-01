@@ -1,0 +1,57 @@
+We're starting CO2-emission from an empty-ish repo and need the smallest foundation before anything interesting.
+
+Inspect the repository and append this stage's implementation plan to docs/plan.md (create the file if missing; never overwrite earlier stages).
+
+Include:
+- what we're changing
+- relevant files/interfaces
+- architectural constraints
+- automated test strategy
+- a manual smoke test I can run live from the terminal after implementation
+
+Non-negotiables for this demo:
+- config defaults include TRAIN_EVERY_N_EVENTS=2000 and BATCH_SIZE=50, overridable from the environment
+- path helpers that resolve data/raw, features, models, predictions, quality and can create them
+- pytest layout with unit / regression / integration markers
+
+For the Manual Smoke Test, design something short and visible: load config (and maybe an env override), then show data dirs resolving/being created — e.g. a tiny `python -c` that prints load_config() and ensure_data_dirs().
+
+Maintain a single living plan at docs/plan.md (Architect-owned). Stages are appended; the file is never wholesale-overwritten.
+
+Rules:
+- if docs/plan.md does not exist, create it with a short project header, then add this stage's section
+- if it already exists, APPEND this stage's section at the end — do not delete or rewrite earlier stages
+- only the Architect owns structural additions; Implementer/Reviewer may fix this stage's Manual Smoke Test wording if commands drifted
+
+Append a concise section shaped like:
+
+## Stage N — <Title>
+
+### Goal
+...
+
+### Proposed changes
+- ...
+
+### Architecture / boundaries
+- ...
+
+### Automated tests
+- Unit: ...
+- Regression: ...
+- Integration: ...
+
+### Manual Smoke Test
+#### What we're proving
+...
+#### Terminal
+(pasteable commands; label Terminal 1 / 2 / 3 if needed)
+#### Watch for
+...
+#### Stop
+Ctrl+C when a process should be stopped
+
+The Manual Smoke Test is for a live classroom demo — visible logs, files on disk, readable CSV/model output. Prefer `make …` targets from the project Makefile as the commands the room runs. Do NOT use `pytest` as the smoke test; that's automated verification (`make test` is fine for the automated gate, not for the live smoke demo).
+
+
+Do not implement the feature yet. Only update docs/plan.md (append this stage), then stop.
