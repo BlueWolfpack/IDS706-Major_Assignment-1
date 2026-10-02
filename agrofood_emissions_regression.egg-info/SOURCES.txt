@@ -1,0 +1,12 @@
+README.md
+setup.py
+agrofood_emissions_regression.egg-info/PKG-INFO
+agrofood_emissions_regression.egg-info/SOURCES.txt
+agrofood_emissions_regression.egg-info/dependency_links.txt
+agrofood_emissions_regression.egg-info/entry_points.txt
+agrofood_emissions_regression.egg-info/requires.txt
+agrofood_emissions_regression.egg-info/top_level.txt
+src/__init__.py
+src/analysis.py
+src/cli.py
+tests/test_analysis.py

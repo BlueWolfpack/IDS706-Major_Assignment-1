@@ -1,3 +1,21 @@
+Metadata-Version: 2.4
+Name: agrofood-emissions-regression
+Version: 0.1.0
+Summary: Per-Area regression analysis of agrofood emissions
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy<3,>=1.26
+Requires-Dist: pandas<3,>=2.2
+Requires-Dist: scikit-learn<2,>=1.5
+Provides-Extra: test
+Requires-Dist: pytest<10,>=8; extra == "test"
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # Per-Area Agrofood Emissions Regression
 
 This project compares a fixed set of ordinary least-squares regression
@@ -19,9 +37,7 @@ To do this we run different analyses on the dataset and subset them, as describe
 
 ### How to install, run, and test it
 
-Do **install** and **run** by following the instructions in the `README.md`, `## Run and analysis` section.
-
-Run the **tests** by following the instructions in the `## Tests` section.
+IDK
 
 ### Manual smoke test result
 
@@ -33,35 +49,7 @@ There were some initial errors in the setup.py file that I was able to correct (
 
 ### How each AI role contributed
 
-#### Architect
 
-The architect combed through my chaotic first project and was able to extract the important parts of what I wanted to do. (I specfically wanted to focus on my question 3 instead of the whole project).
-
-The architect also took my previous work and made what I thought were some very good subsets of the data, I just made a few changes to match more of the divisions that I thought were important. 
-
-#### Builder
-
-The builder was very important in creating all of the functions and test cases. This made the process much faster. However, I have not had the time to thoroughly validate everything the builder did, so I am not sure about what the functions *actually* do. (I was able to validate everything the architect created.)
-
-#### Tester
-
-The tester was nice because it went through the tests that my run had failed and was able to correct things quickly where it would have taken me a bit to figure our what was going on. The tester also compared the current result with the result asked for in the plan.md file.
-
-The tester identified that the result was incomplete; however, I do not have time to make the changes I want to get the result I desire.
-
-### At least one accepted AI recommendation
-
-I accepted the tester AI's medium and low priority recommendations as I felt they were acceptable. (The high priority one was omitted because it was about my responses to the HW questions, which were incomplete at the time and it didn't like that)
-
-### At least one rejected/changed AI recommendation
-
-I had architect AI change the `population_climate` part of the plan to include the male/female populations in addition to the urban/rural populations.
-
-I had the architect "further define the 'curated set of component emission predictors available in the source file.'" as I felt it should be explicitly stated, instead of up for debate on what each set would be. (It was also because I didn't understand what it meant, when I saw the results I was happy with it.)
-
-### How you independently verified the final result
-
-I'm honestly not sure where the final results are stored other than the outputs folder, but that only contains the data from the Japan tests, so I don't know how to verify this. 
 
 ## Data and feature schema
 
@@ -175,12 +163,19 @@ Run the automated suite with:
 python -m pytest
 ```
 
-The tests use deterministic synthetic data and do not require either supplied
-dataset. The following commands use Bash (Linux, macOS, WSL, or Git Bash):
+The tests use deterministic synthetic multi-Area data for exact behavior and
+use `Japan_Agrofood_co2_emission.csv` for checks that need the supplied full
+dataframe. To run those dataset-dependent tests in a container, mount the
+dataset and set `AGROFOOD_TEST_DATA`. The following commands use Bash (Linux,
+macOS, WSL, or Git Bash):
 
 ```bash
 docker build -t agrofood-regression:local .
-docker run --rm --entrypoint python agrofood-regression:local -m pytest
+docker run --rm \
+  -v "$PWD/Japan_Agrofood_co2_emission.csv:/data/japan.csv:ro" \
+  -e AGROFOOD_TEST_DATA=/data/japan.csv \
+  --entrypoint python \
+  agrofood-regression:local -m pytest
 ```
 
 ## Container run

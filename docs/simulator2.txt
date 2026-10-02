@@ -1,9 +1,0 @@
-Review the current Stage 1 simulator as if this were a PR you did not author.
-
-Read docs/plan.md first (this stage's section) for intended behavior, architecture, automated tests, and the Manual Smoke Test.
-
-Verify intake writes the expected columns under data/raw/ and doesn't reach into features/models/predictions. Strengthen unit/regression/integration coverage (seeded golden fixture + one-tick write). Run the full suite.
-
-Inspect whether the documented Manual Smoke Test is still accurate and runnable. Keep this stage's section in docs/plan.md synchronized if commands or outputs changed — never wipe earlier stages. Fix real bugs rather than softening asserts.
-
-Summarize findings, changes, and suite status.

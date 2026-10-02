@@ -1,0 +1,2 @@
+[console_scripts]
+agrofood-regression = src.cli:main

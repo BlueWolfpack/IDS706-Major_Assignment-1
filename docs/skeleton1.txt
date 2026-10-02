@@ -1,9 +1,0 @@
-We're implementing Stage 0 of the CO2-emission pipeline.
-
-Inspect the repository and read docs/plan.md first (focus on this stage's section; earlier stages are context). Treat it as the architecture and behavior handoff from the planning agent — including the Manual Smoke Test section.
-
-Implement the planned skeleton using the existing project patterns: pipeline package with shared config and path helpers, data/ folders, pytest markers. 
-
-Keep the change scoped — no simulator or model yet. Add/update the relevant tests, and run them as you work.
-
-When implementation is complete, do not overwrite docs/plan.md or earlier stage sections. Make sure this stage's Manual Smoke Test still matches the actual commands and behavior. If details changed, update only that stage's Manual Smoke Test section so it is runnable.
