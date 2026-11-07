@@ -4,65 +4,6 @@ This project compares a fixed set of ordinary least-squares regression
 specifications for `total_emission` independently within each `Area`. Results
 are exploratory predictive/accounting associations, not causal effects.
 
-## Questions for IDS 706
-### Which option did I select?
-
-I selected option 2
-
-### What is the purpose of the project
-
-(I am assuming that the project is referring to this repository and not the assignment)
-
-The purpose of this project is to determine the extent to which various predictor variables have on `total_emission`s for each `Area` within the `Agrofood_co2_emission.csv` dataset.
-
-To do this we run different analyses on the dataset and subset them, as described in plan.md
-
-### How to install, run, and test it
-
-Do **install** and **run** by following the instructions in the `README.md`, `## Run and analysis` section.
-
-Run the **tests** by following the instructions in the `## Tests` section.
-
-### Manual smoke test result
-
-It appears that I cannot copy the terminal outputs like I can the chat outputs, so I can't provide any references.
-
-The testing process actually helped me to learn more about how the setup.py file works. I thought I had to run it from the file, but the AI builder told me that I needed to run the code from the README.md file, so that was quite informative and I am glad that I experienced that instead of being directed from the beginning on what to do.
-
-There were some initial errors in the setup.py file that I was able to correct (some by myself and some with AI). the docker components did not work completely so I know that things need to be adjusted. I will do this with the tester AI. Creating the image was successful, it was after that that things went wrong.
-
-### How each AI role contributed
-
-#### Architect
-
-The architect combed through my chaotic first project and was able to extract the important parts of what I wanted to do. (I specfically wanted to focus on my question 3 instead of the whole project).
-
-The architect also took my previous work and made what I thought were some very good subsets of the data, I just made a few changes to match more of the divisions that I thought were important. 
-
-#### Builder
-
-The builder was very important in creating all of the functions and test cases. This made the process much faster. However, I have not had the time to thoroughly validate everything the builder did, so I am not sure about what the functions *actually* do. (I was able to validate everything the architect created.)
-
-#### Tester
-
-The tester was nice because it went through the tests that my run had failed and was able to correct things quickly where it would have taken me a bit to figure our what was going on. The tester also compared the current result with the result asked for in the plan.md file.
-
-The tester identified that the result was incomplete; however, I do not have time to make the changes I want to get the result I desire.
-
-### At least one accepted AI recommendation
-
-I accepted the tester AI's medium and low priority recommendations as I felt they were acceptable. (The high priority one was omitted because it was about my responses to the HW questions, which were incomplete at the time and it didn't like that)
-
-### At least one rejected/changed AI recommendation
-
-I had architect AI change the `population_climate` part of the plan to include the male/female populations in addition to the urban/rural populations.
-
-I had the architect "further define the 'curated set of component emission predictors available in the source file.'" as I felt it should be explicitly stated, instead of up for debate on what each set would be. (It was also because I didn't understand what it meant, when I saw the results I was happy with it.)
-
-### How you independently verified the final result
-
-I'm honestly not sure where the final results are stored other than the outputs folder, but that only contains the data from the Japan tests, so I don't know how to verify this. 
-
 ## Data and feature schema
 
 The source CSV must contain `Area`, `Year`, and `total_emission`. The source
